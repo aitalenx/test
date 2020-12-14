@@ -410,7 +410,18 @@ namespace cbit_电机类 {
     export function Fan(pin: AnalogPin, value: number): void {
 
         //pins.analogWritePin(pin, value);
-		pins.init(baudrate=1000000, bits=8, mode=0, sclk=pin13, mosi=pin15, miso=pin14);
+		//pins.init(baudrate=1000000, bits=8, mode=0, sclk=pin13, mosi=pin15, miso=pin14);
+		
+		pins.digitalWritePin(DigitalPin.P16, 1);
+		pins.spiPins(DigitalPin.P15, DigitalPin.P14, DigitalPin.P13);
+		pins.spiFormat(8, 3);
+		pins.spiFrequency(1000000);
+		pins.digitalWritePin(DigitalPin.P16, 0);
+		let command = pins.spiWrite(143);
+		let whoami = pins.spiWrite(0);
+		pins.digitalWritePin(DigitalPin.P16, 1);
+		//basic.showNumber(whoami);
+		serial.writeLine("WHOAMI register value: " + whoami);
 
     }
 
