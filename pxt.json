@@ -1,0 +1,22 @@
+{
+    "name": "12345678",
+    "description": "",
+    "dependencies": {
+        "core": "*",
+        "radio": "*",
+        "microphone": "*",
+        "NSBit": "github:aitalenx/nsbit_test#17c77b21b2ed7bd545fdd3a5ae0e0e1351dc60cc"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "blocksprj"
+}
