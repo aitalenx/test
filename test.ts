@@ -1,1 +1,1 @@
-// 在此处测试；当此软件包作为插件使用时，将不会编译此软件包。
+// tests go here; this will not be compiled when this package is used as a library
