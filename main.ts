@@ -409,7 +409,8 @@ namespace cbit_电机类 {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=9
     export function Fan(pin: AnalogPin, value: number): void {
 
-        pins.analogWritePin(pin, value);
+        //pins.analogWritePin(pin, value);
+		pins.init(baudrate=1000000, bits=8, mode=0, sclk=pin13, mosi=pin15, miso=pin14);
 
     }
 
@@ -421,7 +422,14 @@ namespace cbit_电机类 {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=9
     export function Servo(pin: AnalogPin, value: number): void {
 
-        pins.servoWritePin(pin, value);
+        //pins.servoWritePin(pin, value);
+		let buf = pins.createBuffer(5);
+        buf[0] = 1;
+        buf[1] = 2;
+        buf[2] = 3;
+        buf[3] = 4;
+        buf[4] = 5;
+		pins.spi.write(buf)
 
     }
 
